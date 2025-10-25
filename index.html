@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>zcfx</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="img-container">
+    <img src="https://cdn.discordapp.com/attachments/1333928325013311539/1419831914545807371/lJf7nfG.png" 
+         alt="Discord Image" 
+         width="400">
+  </div>
+
+  <script>
+    const container = document.querySelector('.img-container');
+    const image = container.querySelector('img');
+
+    container.addEventListener('mousemove', (e) => {
+      const rect = container.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const rotateX = ((y - centerY) / centerY) * 20; 
+      const rotateY = ((x - centerX) / centerX) * 10;
+      image.style.transform = `rotateX(${-rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+    });
+
+    container.addEventListener('mouseleave', () => {
+      image.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
+    });
+  </script>
+</body>
+</html>

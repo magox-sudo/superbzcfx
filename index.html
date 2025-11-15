@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>zcfx</title>
   <link rel="stylesheet" href="style.css">
+  <audio id="meow" src="meow.mp3"></audio>
 </head>
 <body>
   <div class="img-container">
@@ -32,5 +33,15 @@
       image.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
     });
   </script>
+
+  <script>
+  const img = document.querySelector('img[alt="zcfx"]'); // finds the image by alt
+  const audio = document.getElementById("meow");
+
+  img.addEventListener("click", () => {
+    audio.currentTime = 0;
+    audio.play();
+  });
+</script>
 </body>
 </html>
